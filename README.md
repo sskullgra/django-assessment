@@ -29,3 +29,7 @@ Notes: the most commonly queried fields are suburb, client name and email addres
     * a search by client suburb
     * the ability to order by name, email address, phone number and suburb
     * each record should link to the update view from 3.
+
+
+# after run server
+Start url is in <code>host/clients/</code>
