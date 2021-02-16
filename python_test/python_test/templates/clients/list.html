@@ -1,0 +1,94 @@
+{% extends "clients/base.html" %}{% load mytags %}
+<!-- -->
+{% block content %}
+
+<form action="" method="get" autocomplete="off">
+  <div>
+    <label>Client <input name="q_client" value="{{q_client}}" /></label>
+  </div>
+  <div>
+    <label>Email <input name="q_email" value="{{q_email}}" /></label>
+  </div>
+  <div>
+    <label>Phone <input name="q_phone" value="{{q_phone}}" /></label>
+  </div>
+  <div>
+    <label>Suburb <input name="q_suburb" value="{{q_suburb}}" /></label>
+  </div>
+  <button type="submit">Search</button>
+</form>
+<a href="/client/">Add New</a>
+<table style="width: 100%" border="1" style="border-collapse: collapse">
+  <thead>
+    <tr>
+      <th>
+        Cient
+        <a href="{% add_query_params request sort='name' order=order %}"
+          >sort</a
+        >
+      </th>
+      <th>
+        Contact
+        <a href="{% add_query_params request sort='contact' order=order %}"
+          >sort</a
+        >
+      </th>
+      <th>
+        Email
+        <a href="{% add_query_params request  sort='email' order=order %}"
+          >sort</a
+        >
+      </th>
+      <th>
+        Phone
+        <a href="{% add_query_params request  sort='phone' order=order %}"
+          >sort</a
+        >
+      </th>
+      <th>
+        Street
+        <a
+          href="{% add_query_params request  sort='address_street' order=order  %}"
+          >sort</a
+        >
+      </th>
+      <th>
+        Suburb
+        <a
+          href="{% add_query_params request  sort='address_suburb' order=order  %}"
+          >sort</a
+        >
+      </th>
+      <th>
+        Postcode
+        <a
+          href="{% add_query_params request  sort='address_postcode' order=order  %}"
+          >sort</a
+        >
+      </th>
+      <th>
+        State
+        <a
+          href="{% add_query_params request  sort='address_state' order=order  %}"
+          >sort</a
+        >
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for client in client_list %}
+    <tr>
+      <td>{{client.name}}</td>
+      <td>{{client.contact}}</td>
+      <td>{{client.email}}</td>
+      <td>{{client.phone}}</td>
+      <td>{{client.address_street}}</td>
+      <td>{{client.address_suburb}}</td>
+      <td>{{client.address_postcode}}</td>
+      <td>{{client.address_state}}</td>
+      <td><a href="/client/{{client.id}}">Edit</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "clients/base.html" %}
+<!-- -->
+{% block content %}
+<form
+  action=""
+  method="post"
+  autocomplete="off"
+  style="display: flex; flex-direction: column"
+>
+  {%csrf_token%}{{form}}<button type="submit">Submit</button>
+</form>
+{% endblock content %}
